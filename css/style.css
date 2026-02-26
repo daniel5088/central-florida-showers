@@ -156,16 +156,22 @@ img {
 .logo {
   display: flex;
   align-items: center;
+  gap: 10px;
+  color: var(--text-white);
+  font-weight: 700;
 }
 
-.logo-img {
-  height: 55px;
-  width: auto;
-  transition: var(--transition);
+.navbar.scrolled .logo {
+  color: var(--secondary);
 }
 
-.navbar.scrolled .logo-img {
-  height: 45px;
+.logo-icon {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.navbar:not(.scrolled) .logo-icon {
+  color: var(--text-white);
 }
 
 .logo-text {
@@ -876,9 +882,13 @@ img {
   margin-bottom: 15px;
 }
 
-.footer-logo-img {
-  height: 60px;
-  width: auto;
+.footer-about .logo-icon {
+  color: var(--primary);
+}
+
+.footer-about .logo-main,
+.footer-about .logo-sub {
+  color: var(--text-white);
 }
 
 .footer-about p {
