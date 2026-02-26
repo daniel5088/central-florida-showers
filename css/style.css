@@ -162,12 +162,10 @@ img {
   height: 55px;
   width: auto;
   transition: var(--transition);
-  filter: brightness(0) invert(1);
 }
 
 .navbar.scrolled .logo-img {
   height: 45px;
-  filter: none;
 }
 
 .logo-text {
@@ -881,7 +879,6 @@ img {
 .footer-logo-img {
   height: 60px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .footer-about p {
