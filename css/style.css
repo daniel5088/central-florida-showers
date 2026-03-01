@@ -597,34 +597,85 @@ textarea:focus-visible,
   background: var(--bg-light);
 }
 
-.gallery-filters {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
+/* Category Cards Grid (index page) */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-.filter-btn {
-  padding: 10px 24px;
-  border: 2px solid var(--border);
-  border-radius: 50px;
-  background: var(--bg);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: var(--transition);
-  color: var(--text);
+.category-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  display: block;
+  text-decoration: none;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--primary);
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  text-align: center;
+}
+
+.category-overlay h3 {
   color: var(--text-white);
-  border-color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
 }
 
+.category-card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Gallery Detail Page */
+.gallery-page-header {
+  padding: 120px 0 30px;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  transition: var(--transition);
+}
+
+.back-link:hover {
+  color: var(--primary-dark, #135a96);
+}
+
+.gallery-page-title {
+  font-size: 2.2rem;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Gallery Image Grid (detail page) */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1198,6 +1249,7 @@ textarea:focus-visible,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .category-grid,
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1278,6 +1330,7 @@ textarea:focus-visible,
     grid-template-columns: 1fr;
   }
 
+  .category-grid,
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1349,6 +1402,10 @@ textarea:focus-visible,
   .about-stats {
     flex-wrap: wrap;
     gap: 25px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery-grid {
