@@ -176,10 +176,16 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateLightbox() {
     if (visibleItems.length === 0) return;
     var item = visibleItems[currentIndex];
-    var placeholder = item.querySelector('.gallery-placeholder span');
+    var img = item.querySelector('img');
     var overlay = item.querySelector('.gallery-overlay p');
 
-    lightboxContent.textContent = placeholder ? placeholder.textContent : '';
+    lightboxContent.innerHTML = '';
+    if (img) {
+      var lightboxImg = document.createElement('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxContent.appendChild(lightboxImg);
+    }
     lightboxCaption.textContent = overlay ? overlay.textContent : '';
   }
 
